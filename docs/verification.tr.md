@@ -10,10 +10,13 @@ npm run check
 Bu komut şunları çalıştırır:
 
 - `scripts/validate-repo.mjs`: yapı, JSON, TOML, plugin, skill ve temel
-  sızıntı pattern kontrolleri.
+  sızıntı pattern kontrolleri; README storefront sinyalleri ve SVG
+  erişilebilirlik metadata'sı dahil.
 - `scripts/security-audit.mjs`: public repo dosyaları, iki dilli docs, güvenli
   Codex varsayılanları, disabled authenticated MCP'ler ve daha güçlü
   secret/state kontrolleri.
+- `.github/dependabot.yml`: GitHub Actions ve npm manifest için dependency
+  güncelleme hijyeni.
 
 Ek release kontrolleri:
 

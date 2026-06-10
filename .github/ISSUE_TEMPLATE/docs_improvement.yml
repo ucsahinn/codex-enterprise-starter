@@ -1,0 +1,36 @@
+name: Docs or setup improvement
+description: Suggest a documentation, visual, Turkish/English, or setup improvement. / Doküman, görsel, Türkçe/İngilizce veya kurulum iyileştirmesi önerin.
+title: "Docs: "
+body:
+  - type: textarea
+    id: improvement
+    attributes:
+      label: Improvement / İyileştirme
+      description: What should be clearer, safer, or easier? / Ne daha net, güvenli veya kolay olmalı?
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language impact / Dil etkisi
+      options:
+        - English only
+        - Turkish only
+        - English and Turkish
+        - Not language-specific
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References / Referanslar
+      description: Link public official docs or public-safe examples if relevant. / Gerekliyse public resmi doküman veya public-safe örnek linki ekleyin.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check / Güvenlik kontrolü
+      options:
+        - label: This request does not require sharing secrets or private local state.
+          required: true
+        - label: Bu istek secret veya private local state paylaşımı gerektirmiyor.
+          required: true

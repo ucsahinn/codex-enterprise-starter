@@ -9,6 +9,8 @@ scope.
 - Official-source-backed, with links to Codex documentation.
 - Local setup kit, not a managed enterprise policy product.
 - Safe defaults first; users intentionally enable account connectors.
+- First-screen README includes English and Turkish entry points, real badges,
+  and public-safe SVG visuals.
 
 ## Public User Requirements
 
@@ -20,6 +22,11 @@ scope.
   are published.
 - Authenticated MCPs are disabled until a user intentionally enables them.
 - The package is marked `private: true` to avoid accidental npm publishing.
+- README visuals are stored under `assets/`, include accessible SVG metadata,
+  and do not use private screenshots, fake metrics, or unlicensed media.
+- GitHub issue and pull request templates include public-safe reminders and
+  bilingual context where useful.
+- Dependabot is configured for GitHub Actions and npm manifest update PRs.
 
 ## Maintainer Requirements
 

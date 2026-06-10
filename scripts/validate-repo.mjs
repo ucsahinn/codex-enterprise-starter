@@ -20,6 +20,13 @@ const requiredFiles = [
   "docs/how-to.tr.md",
   "docs/completion-audit.md",
   "docs/completion-audit.tr.md",
+  "assets/banner.svg",
+  "assets/workflow-overview.svg",
+  ".github/ISSUE_TEMPLATE/config.yml",
+  ".github/ISSUE_TEMPLATE/bug_report.yml",
+  ".github/ISSUE_TEMPLATE/docs_improvement.yml",
+  ".github/pull_request_template.md",
+  ".github/dependabot.yml",
   "catalog/mcp-servers.json",
   "catalog/skills.json",
   "templates/codex/config.windows.toml",
@@ -166,6 +173,29 @@ for (const file of files) {
     if (!text.startsWith("---\n") || !/\nname:\s*[a-z0-9-]+/i.test(text) || !/\ndescription:\s*/i.test(text)) {
       failures.push(`Invalid skill front matter in ${rel}`);
     }
+  }
+
+  if (rel.startsWith("assets/") && rel.endsWith(".svg")) {
+    if (!/<title[\s>]/.test(text) || !/<desc[\s>]/.test(text)) {
+      failures.push(`SVG asset must include title and desc for accessibility: ${rel}`);
+    }
+  }
+}
+
+const readmeText = [
+  fs.readFileSync(path.join(root, "README.md"), "utf8"),
+  fs.readFileSync(path.join(root, "README.tr.md"), "utf8")
+].join("\n");
+for (const requiredPattern of [
+  /README\.tr\.md/,
+  /Türkçe/,
+  /assets\/banner\.svg/,
+  /assets\/workflow-overview\.svg/,
+  /Trust Signals/,
+  /Güven Sinyalleri/
+]) {
+  if (!requiredPattern.test(readmeText)) {
+    failures.push(`README.md missing required storefront signal: ${requiredPattern}`);
   }
 }
 

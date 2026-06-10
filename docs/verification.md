@@ -10,10 +10,13 @@ npm run check
 This runs:
 
 - `scripts/validate-repo.mjs`: structure, JSON, TOML, plugin, skill, and basic
-  leak-pattern checks.
+  leak-pattern checks, including README storefront signals and SVG asset
+  accessibility metadata.
 - `scripts/security-audit.mjs`: public-readiness files, bilingual docs, safe
   Codex defaults, disabled authenticated MCPs, and stronger secret/state
   checks.
+- `.github/dependabot.yml`: dependency update hygiene for GitHub Actions and
+  the npm manifest.
 
 Additional release checks:
 

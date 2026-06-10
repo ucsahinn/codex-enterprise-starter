@@ -1,5 +1,20 @@
 # Codex Enterprise Starter
 
+<p align="center">
+  <img src="assets/banner.svg" alt="Uzman ajanlar, MCP kaynakları, skill'ler, doğrulama ve iki dilli dokümanları gösteren Codex Enterprise Starter banner görseli" width="100%" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/ucsahinn/codex-enterprise-starter/actions/workflows/validate.yml"><img alt="Validate workflow" src="https://github.com/ucsahinn/codex-enterprise-starter/actions/workflows/validate.yml/badge.svg" /></a>
+  <a href="LICENSE"><img alt="MIT lisansı" src="https://img.shields.io/github/license/ucsahinn/codex-enterprise-starter?color=0f766e" /></a>
+  <a href="README.tr.md"><img alt="Türkçe dokümantasyon" src="https://img.shields.io/badge/docs-English%20%2B%20T%C3%BCrk%C3%A7e-0f766e" /></a>
+  <img alt="Windows ve WSL uyumlu" src="https://img.shields.io/badge/platform-Windows%20%2B%20WSL-164e63" />
+</p>
+
+<p align="center">
+  <a href="README.md">English</a> | <a href="README.tr.md">Türkçe</a>
+</p>
+
 Windows ağırlıklı çalışan güçlü kullanıcılar ve küçük ekipler için güvenlik
 öncelikli Codex kurulum paketi.
 
@@ -76,6 +91,12 @@ başla. Hedef akış:
 Böylece Codex tek bir sohbet gibi değil, uzman ajanları olan küçük bir yazılım
 ekibi gibi çalışır; ana thread ise karar, uygulama ve final kanıtına odaklanır.
 
+## Görsel Akış
+
+<p align="center">
+  <img src="assets/workflow-overview.svg" alt="Kurulum, routing, araştırma, uygulama ve doğrulama adımlarını gösteren workflow diyagramı" width="100%" />
+</p>
+
 ## Güvenli Varsayılanlar
 
 - Sandbox açık kalır.
@@ -86,9 +107,23 @@ ekibi gibi çalışır; ana thread ise karar, uygulama ve final kanıtına odakl
 - GitHub push, release, deploy, secret rotation, package publish, yıkıcı dosya
   işlemleri ve credential erişimi açık kullanıcı onayına bağlıdır.
 
+## Güven Sinyalleri
+
+| Sinyal | Kanıt |
+| --- | --- |
+| Public-safe tasarım | Token, auth dosyası, session, memory, cookie, private key veya makineye özel state içermez. |
+| Gerçek doğrulama | `npm run check` repo validasyonu ve güvenlik audit scriptlerini çalıştırır. |
+| İki dilli doküman | İngilizce ve Türkçe docs eşleşmesi validator tarafından zorunlu tutulur. |
+| Erişilebilir görseller | SVG asset'lerde `title` ve `desc`, README görsellerinde anlamlı alt text bulunur. |
+| Konservatif connector'lar | Authenticated hesap, database ve filesystem MCP'leri ihtiyaç olana kadar disabled kalır. |
+| Community akışı | Issue ve PR template'leri public-safe hatırlatmalar içerir. |
+| Dependency hijyeni | Dependabot GitHub Actions ve npm manifest güncellemelerini takip eder. |
+
 ## Repo Yapısı
 
 ```text
+.github/                 Validation workflow, issue ve PR template'leri
+assets/                  Public-safe README görselleri ve diyagramları
 catalog/                 MCP ve skill katalogları
 docs/                    İngilizce ve Türkçe kurulum dokümanları
 plugins/                 İsteğe bağlı yerel Codex plugin paketi
@@ -158,3 +193,7 @@ Bakılacak dosyalar:
 - [docs/public-readiness.tr.md](docs/public-readiness.tr.md)
 - [SECURITY.md](SECURITY.md)
 - [SUPPORT.md](SUPPORT.md)
+- [CONTRIBUTING.md](CONTRIBUTING.md)
+
+Bug bildirimi, doküman önerisi ve pull request akışları public-safe kontrol
+kutuları içeren `.github/` template'leriyle başlar.

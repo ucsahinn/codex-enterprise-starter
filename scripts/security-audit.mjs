@@ -21,6 +21,13 @@ const requiredPublicFiles = [
   "docs/how-to.tr.md",
   "docs/completion-audit.md",
   "docs/completion-audit.tr.md",
+  "assets/banner.svg",
+  "assets/workflow-overview.svg",
+  ".github/ISSUE_TEMPLATE/config.yml",
+  ".github/ISSUE_TEMPLATE/bug_report.yml",
+  ".github/ISSUE_TEMPLATE/docs_improvement.yml",
+  ".github/pull_request_template.md",
+  ".github/dependabot.yml",
   ".github/workflows/validate.yml"
 ];
 

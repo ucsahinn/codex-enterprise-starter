@@ -1,9 +1,28 @@
 # Codex Enterprise Starter
 
+<p align="center">
+  <img src="assets/banner.svg" alt="Codex Enterprise Starter banner showing agents, MCPs, skills, verification, and bilingual docs" width="100%" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/ucsahinn/codex-enterprise-starter/actions/workflows/validate.yml"><img alt="Validate workflow" src="https://github.com/ucsahinn/codex-enterprise-starter/actions/workflows/validate.yml/badge.svg" /></a>
+  <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/github/license/ucsahinn/codex-enterprise-starter?color=0f766e" /></a>
+  <a href="README.tr.md"><img alt="Turkish documentation" src="https://img.shields.io/badge/docs-English%20%2B%20T%C3%BCrk%C3%A7e-0f766e" /></a>
+  <img alt="Windows and WSL ready" src="https://img.shields.io/badge/platform-Windows%20%2B%20WSL-164e63" />
+</p>
+
+<p align="center">
+  <a href="README.md">English</a> | <a href="README.tr.md">Türkçe</a>
+</p>
+
 A security-first Codex setup kit for Windows-first power users and small teams.
 It turns a mature local Codex configuration into a clean, shareable repository:
 global instructions, MCP defaults, specialist agents, approval rules, skill
 catalogs, plugin packaging, validation scripts, and bilingual how-to docs.
+
+Türkçe kısa özet: Bu repo Codex'i tek kurulumla uzman ajanları, MCP kaynakları,
+güvenli onay/sandbox varsayılanları ve iki dilli kullanım rehberleri olan güçlü
+bir çalışma alanına çevirir.
 
 This is an unofficial community starter. It is not an OpenAI product, but it is
 designed from official Codex documentation and keeps links to the official
@@ -74,6 +93,12 @@ model. The intended flow is:
 This makes the setup behave like a small specialist software team while keeping
 the main Codex thread focused on decisions, implementation, and final evidence.
 
+## Visual Overview
+
+<p align="center">
+  <img src="assets/workflow-overview.svg" alt="Workflow overview showing install, route, research, implement, and verify steps" width="100%" />
+</p>
+
 ## Safe Defaults
 
 - Sandbox stays enabled.
@@ -84,9 +109,23 @@ the main Codex thread focused on decisions, implementation, and final evidence.
 - GitHub push, release creation, deployment, secret rotation, package publishing,
   destructive file operations, and credential access remain approval-gated.
 
+## Trust Signals
+
+| Signal | Evidence |
+| --- | --- |
+| Public-safe by design | No tokens, auth files, sessions, memories, cookies, private keys, or machine-specific state are included. |
+| Real validation | `npm run check` runs repository validation and security audit scripts. |
+| Bilingual docs | English and Turkish docs are paired and enforced by validation. |
+| Accessible visuals | SVG assets include `title` and `desc`, and README images include alt text. |
+| Conservative connectors | Authenticated account, database, and filesystem MCPs stay disabled until needed. |
+| Community flow | Issue and PR templates include public-safe reminders. |
+| Dependency hygiene | Dependabot tracks GitHub Actions and npm manifest updates. |
+
 ## Repository Layout
 
 ```text
+.github/                 Validation workflow plus issue and PR templates
+assets/                  Public-safe README visuals and diagrams
 catalog/                 MCP and skill catalogs
 docs/                    English and Turkish setup guides
 plugins/                 Optional local Codex plugin package
@@ -156,3 +195,7 @@ See:
 - [docs/public-readiness.md](docs/public-readiness.md)
 - [SECURITY.md](SECURITY.md)
 - [SUPPORT.md](SUPPORT.md)
+- [CONTRIBUTING.md](CONTRIBUTING.md)
+
+Issue and PR templates are included under `.github/` so bug reports,
+documentation suggestions, and pull requests start with public-safe checks.

@@ -13,3 +13,7 @@
 - Added security audit script covering safe defaults, disabled authenticated MCPs, and leak patterns.
 - Added one-shot installer flags and complete English/Turkish docs pairing.
 - Added completion audit docs that map requirements to repository evidence.
+- Added README storefront visuals, real badges, Turkish first-screen signal, and SVG asset validation.
+- Added bilingual public-safe issue templates and a pull request template.
+- Added README trust-signal tables and expanded repository map entries.
+- Added Dependabot configuration for GitHub Actions and npm manifest updates.

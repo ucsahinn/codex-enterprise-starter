@@ -1,0 +1,69 @@
+name: Bug report
+description: Report a problem with installation, validation, docs, or templates. / Kurulum, doğrulama, doküman veya template sorunu bildirin.
+title: "Bug: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Do not include tokens, auth files, private paths, cookies, sessions, or secret values.
+
+        Sorun bildirdiğiniz için teşekkürler. Token, auth dosyası, private path, cookie, session veya secret değer paylaşmayın.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary / Özet
+      description: What happened? / Ne oldu?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area / Alan
+      options:
+        - Install script
+        - Codex config template
+        - Agents
+        - MCP catalog
+        - Skills catalog
+        - Plugin
+        - Documentation
+        - Validation or security audit
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce / Tekrar adımları
+      description: Include commands and public-safe output only. / Sadece komutları ve public-safe çıktıyı ekleyin.
+      placeholder: |
+        1. Run ...
+        2. See ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior / Beklenen davranış
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment / Ortam
+      description: OS, shell, Codex surface, Node version, and installer used. / OS, shell, Codex yüzeyi, Node sürümü ve kullanılan installer.
+      placeholder: |
+        OS:
+        Shell:
+        Codex surface:
+        Node:
+        Installer:
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check / Güvenlik kontrolü
+      options:
+        - label: I did not include secrets, tokens, cookies, private keys, auth files, sessions, or private local paths.
+          required: true
+        - label: Secret, token, cookie, private key, auth file, session veya private local path paylaşmadım.
+          required: true
