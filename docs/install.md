@@ -28,9 +28,9 @@ Useful switches:
 - `-All`: install Codex templates, verified public skills, and global Git
   guards.
 - `-InstallSkills`: install `catalog/skills.json` entries that have
-  `install: true` and a verified `source` in `owner/repo@skill` format. Entries
-  without a verified source are skipped instead of being treated as Git
-  repositories.
+  `install: true`, a verified `package` in `owner/repo` format, and a matching
+  `skill` name. The installer calls `npx skills add <package> --skill <skill>
+  --yes --global`, so plain skill names are never treated as Git repositories.
 - `-InstallGitGuards`: install global Git ignore and pre-commit hook.
 - `-Force`: overwrite managed Codex files after creating backups.
 - `-NoBackup`: skip backups. Not recommended.

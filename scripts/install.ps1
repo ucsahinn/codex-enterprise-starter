@@ -162,14 +162,14 @@ if ($InstallSkills) {
   $CatalogPath = Join-Path $RepoRoot "catalog\skills.json"
   $Catalog = Get-Content -Path $CatalogPath -Raw | ConvertFrom-Json
   foreach ($Skill in $Catalog.skills | Where-Object { $_.install -eq $true }) {
-    if (-not $Skill.source) {
-      Write-Warning "Skipped skill without verified install source: $($Skill.name)"
+    if (-not $Skill.package -or -not $Skill.skill) {
+      Write-Warning "Skipped skill without verified package and skill fields: $($Skill.name)"
       continue
     }
 
-    Write-Host "Installing skill: $($Skill.name) from $($Skill.source)"
+    Write-Host "Installing skill: $($Skill.name) from $($Skill.package) --skill $($Skill.skill)"
     try {
-      & npx.cmd skills add $Skill.source --yes --global
+      & npx.cmd skills add $Skill.package --skill $Skill.skill --yes --global
       if ($LASTEXITCODE -ne 0) {
         throw "npx skills add exited with code $LASTEXITCODE"
       }

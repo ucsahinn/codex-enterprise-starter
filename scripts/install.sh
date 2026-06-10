@@ -147,13 +147,13 @@ const fs = require("fs");
 const { spawnSync } = require("child_process");
 const catalog = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
 for (const skill of catalog.skills.filter((item) => item.install)) {
-  if (!skill.source) {
-    console.warn(`Skipped skill without verified install source: ${skill.name}`);
+  if (!skill.package || !skill.skill) {
+    console.warn(`Skipped skill without verified package and skill fields: ${skill.name}`);
     continue;
   }
 
-  console.log(`Installing skill: ${skill.name} from ${skill.source}`);
-  const result = spawnSync("npx", ["skills", "add", skill.source, "--yes", "--global"], { stdio: "inherit" });
+  console.log(`Installing skill: ${skill.name} from ${skill.package} --skill ${skill.skill}`);
+  const result = spawnSync("npx", ["skills", "add", skill.package, "--skill", skill.skill, "--yes", "--global"], { stdio: "inherit" });
   if (result.status !== 0) {
     console.warn(`Skill install failed for ${skill.name}`);
   }

@@ -42,7 +42,7 @@ project paths, private keys, cookies, or machine-specific state.
 - `~/.codex/rules/default.rules` with narrow command approval rules.
 - Optional global Git hygiene: ignore file plus a pre-commit hook that blocks
   obvious secrets and runs Gitleaks when available.
-- Optional skill installation from verified public sources in
+- Optional skill installation from verified public packages in
   `catalog/skills.json`.
 - A local plugin marketplace entry for the bundled
   `codex-enterprise-workflows` plugin.

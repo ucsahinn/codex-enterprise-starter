@@ -30,9 +30,10 @@ Sadece belirli parçaları kurmak istiyorsan dar bayrakları kullan:
 - `-InstallSkills` / `--install-skills`
 - `-InstallGitGuards` / `--install-git-guards`
 
-Skill kurulumu `catalog/skills.json` içindeki doğrulanmış `source` değerlerini
-kullanır ve Skills CLI'ye `--yes --global` verir. Doğrulanmış public source
-olmayan katalog kayıtları isimleriyle clone edilmeye çalışılmaz, skip edilir.
+Skill kurulumu `catalog/skills.json` içindeki doğrulanmış `package` ve `skill`
+değerlerini kullanır; Skills CLI'ye `--skill`, `--yes` ve `--global` verir. İki
+alanı da olmayan katalog kayıtları isimleriyle clone edilmeye çalışılmaz, skip
+edilir.
 
 ## İlk Doğrulama
 

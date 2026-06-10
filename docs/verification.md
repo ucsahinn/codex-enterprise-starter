@@ -12,7 +12,7 @@ This runs:
 - `scripts/validate-repo.mjs`: structure, JSON, TOML, plugin, skill, and basic
   leak-pattern checks, including README storefront signals and SVG asset
   accessibility metadata, lightweight animation, reduced-motion fallback, and
-  installable skill source format.
+  installable skill package and skill-name format.
 - `scripts/security-audit.mjs`: public-readiness files, bilingual docs, safe
   Codex defaults, disabled authenticated MCPs, and stronger secret/state
   checks.

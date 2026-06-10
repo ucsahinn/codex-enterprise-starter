@@ -27,10 +27,10 @@ Kullanışlı parametreler:
 
 - `-All`: Codex template'lerini, doğrulanmış public skill'leri ve global Git
   guard'larını birlikte kurar.
-- `-InstallSkills`: `catalog/skills.json` içinde `install: true` olan ve
-  `owner/repo@skill` formatında doğrulanmış `source` taşıyan kayıtları kurar.
-  Doğrulanmış source olmayan kayıtları Git repository gibi clone etmeye çalışmaz,
-  skip eder.
+- `-InstallSkills`: `catalog/skills.json` içinde `install: true` olan,
+  `owner/repo` formatında doğrulanmış `package` ve eşleşen `skill` adı taşıyan
+  kayıtları kurar. Installer `npx skills add <package> --skill <skill> --yes
+  --global` çağırır; düz skill adını Git repository gibi clone etmeye çalışmaz.
 - `-InstallGitGuards`: global Git ignore ve pre-commit hook kurar.
 - `-Force`: yedek aldıktan sonra yönetilen Codex dosyalarının üzerine yazar.
 - `-NoBackup`: yedeklemeyi kapatır. Tavsiye edilmez.

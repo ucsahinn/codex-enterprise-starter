@@ -236,8 +236,14 @@ if (fs.existsSync(skillCatalog)) {
   const catalog = JSON.parse(fs.readFileSync(skillCatalog, "utf8"));
   for (const skill of catalog.skills || []) {
     if (skill.install === true) {
-      if (!skill.source || !/^[^/\s]+\/[^@\s]+@[^@\s]+$/.test(skill.source)) {
-        failures.push(`Installable skill must declare source as owner/repo@skill: ${skill.name}`);
+      if (!skill.package || !/^[^/\s]+\/[^@\s]+$/.test(skill.package)) {
+        failures.push(`Installable skill must declare package as owner/repo: ${skill.name}`);
+      }
+      if (!skill.skill || /\s/.test(skill.skill)) {
+        failures.push(`Installable skill must declare a single skill name: ${skill.name}`);
+      }
+      if (skill.source !== `${skill.package}@${skill.skill}`) {
+        failures.push(`Installable skill source must equal package@skill for ${skill.name}`);
       }
     }
   }

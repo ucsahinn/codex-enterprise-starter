@@ -30,9 +30,9 @@ Use the narrower flags only when you intentionally want a partial setup:
 - `-InstallSkills` / `--install-skills`
 - `-InstallGitGuards` / `--install-git-guards`
 
-Skill installation uses the verified `source` values in `catalog/skills.json`
-and passes `--yes --global` to the Skills CLI. Catalog entries without a
-verified public source are skipped, not cloned by name.
+Skill installation uses the verified `package` and `skill` values in
+`catalog/skills.json` and passes `--skill`, `--yes`, and `--global` to the
+Skills CLI. Catalog entries without both fields are skipped, not cloned by name.
 
 ## First Verification
 
