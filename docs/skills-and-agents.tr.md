@@ -10,7 +10,8 @@ Resmi kaynak: https://developers.openai.com/codex/skills
 
 Bu repo şunları içerir:
 
-- `catalog/skills.json`: seçilmiş skill kurulum hedefleri ve kategorileri.
+- `catalog/skills.json`: seçilmiş skill referansları, kategorileri ve varsa
+  doğrulanmış public kurulum source değerleri.
 - `plugins/codex-enterprise-workflows/skills/enterprise-codex-operator`: bu
   kurulumu bakımda tutmak için küçük bir yerel skill.
 
@@ -29,6 +30,10 @@ Bu repo şunları içerir:
 
 Installer yerel marketplace kaydını kurar. Codex'i yeniden başlatıp `/plugins`
 ile plugin'i inceleyebilir veya kurabilirsin.
+
+Installer sadece `install: true` ve `owner/repo@skill` formatında doğrulanmış
+`source` taşıyan katalog kayıtları için Skills CLI çağırır. Böylece düz skill
+ismi yanlışlıkla Git repository gibi clone edilmeye çalışılmaz.
 
 ## Uzman Ajanlar
 

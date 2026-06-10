@@ -8,7 +8,8 @@ Codex uses `~/.codex`; if `CODEX_HOME` is set, the installer uses that path.
 - Codex CLI or Codex app installed.
 - Git installed.
 - Node.js 18 or newer for validation and optional skill installation.
-- `npx` available if you use stdio MCP servers or install curated skills.
+- `npx` available if you use stdio MCP servers or install verified public
+  skills.
 - Optional: Gitleaks for stronger pre-commit and pre-push scanning.
 - Optional on Windows: `winget`, `uvx`, and current Windows 11 for the best
   native sandbox path.
@@ -24,8 +25,12 @@ Set-ExecutionPolicy -Scope Process Bypass -Force
 
 Useful switches:
 
-- `-All`: install Codex templates, curated skills, and global Git guards.
-- `-InstallSkills`: attempt to install entries from `catalog/skills.json`.
+- `-All`: install Codex templates, verified public skills, and global Git
+  guards.
+- `-InstallSkills`: install `catalog/skills.json` entries that have
+  `install: true` and a verified `source` in `owner/repo@skill` format. Entries
+  without a verified source are skipped instead of being treated as Git
+  repositories.
 - `-InstallGitGuards`: install global Git ignore and pre-commit hook.
 - `-Force`: overwrite managed Codex files after creating backups.
 - `-NoBackup`: skip backups. Not recommended.

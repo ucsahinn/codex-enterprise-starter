@@ -9,7 +9,8 @@ Official reference: https://developers.openai.com/codex/skills
 
 This repo includes:
 
-- `catalog/skills.json`: curated skill install targets and categories.
+- `catalog/skills.json`: curated skill references, categories, and verified
+  public install sources where available.
 - `plugins/codex-enterprise-workflows/skills/enterprise-codex-operator`: a
   small local skill for maintaining this setup.
 
@@ -28,6 +29,10 @@ This repo includes:
 
 The installer registers the local marketplace. Restart Codex, then open
 `/plugins` to inspect or install the plugin.
+
+The installer only calls the Skills CLI for catalog entries with `install: true`
+and a verified `source` value such as `owner/repo@skill`. This avoids treating a
+plain skill name as a Git repository.
 
 ## Specialist Agents
 

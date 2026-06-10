@@ -1,7 +1,7 @@
 # Kurulum Nasıl Kullanılır?
 
 Bu starter sadece bir `config.toml` kopyası değildir. Kurulumdan sonra Codex'in
-kalıcı talimatları, güvenli MCP varsayılanları, seçilmiş skill'leri, uzman
+kalıcı talimatları, güvenli MCP varsayılanları, doğrulanmış public skill'leri, uzman
 ajanları, profilleri, kuralları, yerel plugin'i ve Git hijyen guard'ları hazır
 olmalıdır.
 
@@ -29,6 +29,10 @@ Sadece belirli parçaları kurmak istiyorsan dar bayrakları kullan:
 
 - `-InstallSkills` / `--install-skills`
 - `-InstallGitGuards` / `--install-git-guards`
+
+Skill kurulumu `catalog/skills.json` içindeki doğrulanmış `source` değerlerini
+kullanır ve Skills CLI'ye `--yes --global` verir. Doğrulanmış public source
+olmayan katalog kayıtları isimleriyle clone edilmeye çalışılmaz, skip edilir.
 
 ## İlk Doğrulama
 

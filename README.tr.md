@@ -40,7 +40,8 @@ cookie veya makineye özel gizli durum içermez.
 - `~/.codex/rules/default.rules` dar kapsamlı komut onay kuralları.
 - İsteğe bağlı global Git hijyeni: global ignore ve secret engelleyen
   pre-commit hook.
-- İsteğe bağlı skill kurulumu: `catalog/skills.json`.
+- İsteğe bağlı skill kurulumu: `catalog/skills.json` içindeki doğrulanmış public
+  source kayıtları.
 - Yerel plugin marketplace kaydı: `codex-enterprise-workflows`.
 
 ## ⚡ Hızlı Kurulum

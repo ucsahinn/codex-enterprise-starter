@@ -2,7 +2,7 @@
 
 This starter is designed for a Codex user who wants a ready operating model,
 not just a copied config file. After installation, Codex should have durable
-instructions, safe MCP defaults, curated skills, specialist agents, profiles,
+instructions, safe MCP defaults, verified public skills, specialist agents, profiles,
 rules, a local plugin, and Git hygiene guardrails.
 
 ## One-Shot Setup
@@ -29,6 +29,10 @@ Use the narrower flags only when you intentionally want a partial setup:
 
 - `-InstallSkills` / `--install-skills`
 - `-InstallGitGuards` / `--install-git-guards`
+
+Skill installation uses the verified `source` values in `catalog/skills.json`
+and passes `--yes --global` to the Skills CLI. Catalog entries without a
+verified public source are skipped, not cloned by name.
 
 ## First Verification
 

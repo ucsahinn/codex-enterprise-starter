@@ -11,7 +11,8 @@ Bu komut şunları çalıştırır:
 
 - `scripts/validate-repo.mjs`: yapı, JSON, TOML, plugin, skill ve temel
   sızıntı pattern kontrolleri; README storefront sinyalleri ve SVG
-  erişilebilirlik metadata'sı, hafif animasyon ve reduced-motion fallback dahil.
+  erişilebilirlik metadata'sı, hafif animasyon, reduced-motion fallback ve
+  kurulabilir skill source formatı dahil.
 - `scripts/security-audit.mjs`: public repo dosyaları, iki dilli docs, güvenli
   Codex varsayılanları, disabled authenticated MCP'ler ve daha güçlü
   secret/state kontrolleri.

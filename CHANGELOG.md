@@ -19,3 +19,5 @@
 - Added Dependabot configuration for GitHub Actions and npm manifest updates.
 - Added icon-rich README polish, animated SVG visuals, emoji accents, and reduced-motion validation.
 - Ignored local Serena state in Git and repository scans.
+- Fixed optional skill installation to use verified `owner/repo@skill` sources
+  with `--yes --global` instead of cloning plain skill names.

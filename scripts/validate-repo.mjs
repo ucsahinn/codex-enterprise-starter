@@ -231,6 +231,18 @@ if (fs.existsSync(pluginManifest)) {
   }
 }
 
+const skillCatalog = path.join(root, "catalog/skills.json");
+if (fs.existsSync(skillCatalog)) {
+  const catalog = JSON.parse(fs.readFileSync(skillCatalog, "utf8"));
+  for (const skill of catalog.skills || []) {
+    if (skill.install === true) {
+      if (!skill.source || !/^[^/\s]+\/[^@\s]+@[^@\s]+$/.test(skill.source)) {
+        failures.push(`Installable skill must declare source as owner/repo@skill: ${skill.name}`);
+      }
+    }
+  }
+}
+
 if (failures.length > 0) {
   console.error("Validation failed:");
   for (const failure of failures) {

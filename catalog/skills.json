@@ -1,173 +1,182 @@
 {
   "version": "0.1.0",
-  "installCommand": "npx skills add <name>",
+  "installCommand": "npx skills add <source> --yes --global",
   "skills": [
     {
       "name": "mcp-connectors",
       "category": "codex-setup",
-      "install": true,
+      "install": false,
       "reason": "Configure and troubleshoot Codex MCP connectors."
     },
     {
       "name": "git-hygiene",
       "category": "release-security",
-      "install": true,
+      "install": false,
       "reason": "Keep commits, pushes, releases, and artifacts clean."
     },
     {
       "name": "investigate",
       "category": "debugging",
-      "install": true,
+      "install": false,
       "reason": "Diagnose unclear failures before fixing."
     },
     {
       "name": "incident-triage",
       "category": "debugging",
-      "install": true,
+      "install": false,
       "reason": "Triage production regressions and incidents."
     },
     {
       "name": "new-feature",
       "category": "implementation",
-      "install": true,
+      "install": false,
       "reason": "Implement bounded product or code features."
     },
     {
       "name": "refactor-plan",
       "category": "implementation",
-      "install": true,
+      "install": false,
       "reason": "Plan and execute behavior-preserving refactors."
     },
     {
       "name": "dependency-upgrade",
       "category": "maintenance",
       "install": true,
+      "source": "wshobson/agents@dependency-upgrade",
       "reason": "Upgrade dependencies safely."
     },
     {
       "name": "test-backfill",
       "category": "testing",
-      "install": true,
+      "install": false,
       "reason": "Add tests around existing behavior."
     },
     {
       "name": "performance-audit",
       "category": "performance",
-      "install": true,
+      "install": false,
       "reason": "Measure and improve slow paths."
     },
     {
       "name": "db-migration-review",
       "category": "database",
-      "install": true,
+      "install": false,
       "reason": "Review and implement schema/migration changes safely."
     },
     {
       "name": "release-verify",
       "category": "release-security",
-      "install": true,
+      "install": false,
       "reason": "Verify readiness before release, packaging, and deployment."
     },
     {
       "name": "code-review",
       "category": "review",
-      "install": true,
+      "install": false,
       "reason": "Run a correctness-first review pass."
     },
     {
       "name": "sentry-code-review",
       "category": "review",
-      "install": true,
+      "install": false,
       "reason": "Perform security/performance-aware reviews."
     },
     {
       "name": "codex-pr-body",
       "category": "github",
-      "install": true,
+      "install": false,
       "reason": "Update PR titles and bodies."
     },
     {
       "name": "babysit-pr",
       "category": "github",
-      "install": true,
+      "install": false,
       "reason": "Watch PR comments, CI, and mergeability."
     },
     {
       "name": "open-pr",
       "category": "github",
-      "install": true,
+      "install": false,
       "reason": "Prepare pull requests when explicitly asked."
     },
     {
       "name": "security-best-practices",
       "category": "security",
-      "install": true,
+      "install": false,
       "reason": "Apply framework-specific secure defaults."
     },
     {
       "name": "security-check",
       "category": "security",
-      "install": true,
+      "install": false,
       "reason": "Verify auth, validation, and route security."
     },
     {
       "name": "security-threat-model",
       "category": "security",
-      "install": true,
+      "install": false,
       "reason": "Create repository-grounded threat models."
     },
     {
       "name": "frontend-skill",
       "category": "frontend-design",
       "install": true,
+      "source": "openai/skills@frontend-skill",
       "reason": "Build visually strong frontend experiences."
     },
     {
       "name": "impeccable",
       "category": "frontend-design",
       "install": true,
+      "source": "pbakaus/impeccable@impeccable",
       "reason": "Audit and polish frontend interfaces."
     },
     {
       "name": "design-taste-frontend",
       "category": "frontend-design",
       "install": true,
+      "source": "leonxlnx/taste-skill@design-taste-frontend",
       "reason": "Apply senior UI/UX engineering standards."
     },
     {
       "name": "image-to-code",
       "category": "frontend-design",
       "install": true,
+      "source": "leonxlnx/taste-skill@image-to-code",
       "reason": "Translate visual references into frontend code."
     },
     {
       "name": "high-end-visual-design",
       "category": "frontend-design",
       "install": true,
+      "source": "leonxlnx/taste-skill@high-end-visual-design",
       "reason": "Avoid generic AI-looking design output."
     },
     {
       "name": "web-design-guidelines",
       "category": "frontend-design",
       "install": true,
+      "source": "vercel-labs/agent-skills@web-design-guidelines",
       "reason": "Review accessibility and UX quality."
     },
     {
       "name": "vercel-react-best-practices",
       "category": "react-nextjs",
       "install": true,
+      "source": "vercel-labs/agent-skills@vercel-react-best-practices",
       "reason": "Optimize React and Next.js patterns."
     },
     {
       "name": "vercel-optimize",
       "category": "react-nextjs",
       "install": true,
+      "source": "vercel-labs/agent-skills@vercel-optimize",
       "reason": "Investigate Vercel cost and performance."
     },
     {
       "name": "playwright",
       "category": "browser-testing",
-      "install": true,
+      "install": false,
       "reason": "Automate browser verification from the terminal."
     }
   ]
