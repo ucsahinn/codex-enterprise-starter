@@ -146,16 +146,45 @@ if [ "$INSTALL_SKILLS" -eq 1 ]; then
 const fs = require("fs");
 const { spawnSync } = require("child_process");
 const catalog = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
+const env = {
+  ...process.env,
+  GIT_CONFIG_COUNT: process.env.GIT_CONFIG_COUNT || "1",
+  GIT_CONFIG_KEY_0: process.env.GIT_CONFIG_KEY_0 || "http.sslBackend",
+  GIT_CONFIG_VALUE_0: process.env.GIT_CONFIG_VALUE_0 || "openssl"
+};
+const installed = new Set();
+const listResult = spawnSync("npx", ["skills", "list", "--global", "--json"], {
+  encoding: "utf8",
+  env
+});
+if (listResult.status === 0 && listResult.stdout.trim()) {
+  for (const skill of JSON.parse(listResult.stdout)) {
+    installed.add(skill.name);
+  }
+}
+
 for (const skill of catalog.skills.filter((item) => item.install)) {
   if (!skill.package || !skill.skill) {
     console.warn(`Skipped skill without verified package and skill fields: ${skill.name}`);
     continue;
   }
+  if (installed.has(skill.name)) {
+    console.log(`Skill already installed: ${skill.name}`);
+    continue;
+  }
 
   console.log(`Installing skill: ${skill.name} from ${skill.package} --skill ${skill.skill}`);
-  const result = spawnSync("npx", ["skills", "add", skill.package, "--skill", skill.skill, "--yes", "--global"], { stdio: "inherit" });
-  if (result.status !== 0) {
-    console.warn(`Skill install failed for ${skill.name}`);
+  const result = spawnSync(
+    "npx",
+    ["skills", "add", skill.package, "--skill", skill.skill, "--agent", "codex", "--yes", "--global"],
+    { encoding: "utf8", env }
+  );
+  process.stdout.write(result.stdout || "");
+  process.stderr.write(result.stderr || "");
+  const output = `${result.stdout || ""}\n${result.stderr || ""}`;
+  if (result.status !== 0 || /Failed to install|Installation failed|Failed to clone/.test(output)) {
+    console.error(`Skill install failed for ${skill.name}`);
+    process.exit(1);
   }
 }
 NODE

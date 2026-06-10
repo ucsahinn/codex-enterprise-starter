@@ -154,27 +154,51 @@ if ($InstallGitGuards) {
   Install-File -Source (Join-Path $RepoRoot "templates\git\pre-commit") -Destination $HookTarget
 
   git config --global core.excludesfile $GitIgnoreTarget
+  if ($LASTEXITCODE -ne 0) {
+    throw "git config core.excludesfile failed with code $LASTEXITCODE"
+  }
   git config --global core.hooksPath $HooksDir
+  if ($LASTEXITCODE -ne 0) {
+    throw "git config core.hooksPath failed with code $LASTEXITCODE"
+  }
   Write-Host "Configured global Git excludesfile and hooksPath."
 }
 
 if ($InstallSkills) {
   $CatalogPath = Join-Path $RepoRoot "catalog\skills.json"
   $Catalog = Get-Content -Path $CatalogPath -Raw | ConvertFrom-Json
+  $env:GIT_CONFIG_COUNT = "1"
+  $env:GIT_CONFIG_KEY_0 = "http.sslBackend"
+  $env:GIT_CONFIG_VALUE_0 = "openssl"
+  $InstalledSkills = @{}
+  try {
+    $InstalledJson = & npx.cmd skills list --global --json 2>$null
+    if ($LASTEXITCODE -eq 0 -and $InstalledJson) {
+      foreach ($Installed in ($InstalledJson | ConvertFrom-Json)) {
+        $InstalledSkills[$Installed.name] = $true
+      }
+    }
+  } catch {
+    Write-Warning "Could not list existing global skills; installer will attempt verified installs."
+  }
+
   foreach ($Skill in $Catalog.skills | Where-Object { $_.install -eq $true }) {
     if (-not $Skill.package -or -not $Skill.skill) {
       Write-Warning "Skipped skill without verified package and skill fields: $($Skill.name)"
       continue
     }
+    if ($InstalledSkills.ContainsKey($Skill.name)) {
+      Write-Host "Skill already installed: $($Skill.name)"
+      continue
+    }
 
     Write-Host "Installing skill: $($Skill.name) from $($Skill.package) --skill $($Skill.skill)"
-    try {
-      & npx.cmd skills add $Skill.package --skill $Skill.skill --yes --global
-      if ($LASTEXITCODE -ne 0) {
-        throw "npx skills add exited with code $LASTEXITCODE"
-      }
-    } catch {
-      Write-Warning "Skill install failed for $($Skill.name): $($_.Exception.Message)"
+    $Output = & npx.cmd skills add $Skill.package --skill $Skill.skill --agent codex --yes --global 2>&1
+    $ExitCode = $LASTEXITCODE
+    $Output | ForEach-Object { Write-Host $_ }
+    $OutputText = ($Output -join [Environment]::NewLine)
+    if ($ExitCode -ne 0 -or $OutputText -match "Failed to install|Installation failed|Failed to clone") {
+      throw "Skill install failed for $($Skill.name)"
     }
   }
 }

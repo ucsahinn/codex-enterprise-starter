@@ -37,6 +37,18 @@ Kurulabilir skill'ler değiştiğinde network destekli resolver kontrolünü de
 npm run verify:skills:online
 ```
 
+Tam lokal setup smoke testi için, mevcut kullanıcının Codex ve Git guard
+dosyalarını güncellemenin güvenli olduğunu doğruladıktan sonra installer'ı
+çalıştır:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\install.ps1 -All -Force
+```
+
+Beklenen skill davranışı idempotenttir: kurulu skill'ler `Skill already
+installed` olarak geçer; yeni skill kurulumunda Skills CLI clone, installation
+veya write hatası bildirirse installer fail eder.
+
 Push sonrası remote doğrulama:
 
 ```bash

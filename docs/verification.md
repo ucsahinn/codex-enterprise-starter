@@ -36,6 +36,17 @@ When installable skills change, also run the network-backed resolver check:
 npm run verify:skills:online
 ```
 
+For a full local setup smoke test, run the installer after confirming it is safe
+to update the current user's Codex and Git guard files:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\install.ps1 -All -Force
+```
+
+Expected skill behavior is idempotent: already installed skills are reported as
+`Skill already installed`, and new skill installs fail the installer if the
+Skills CLI reports clone, installation, or write failures.
+
 Remote verification after push:
 
 ```bash
