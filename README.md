@@ -31,7 +31,7 @@ source pages in the docs.
 This repository does not include tokens, auth files, memories, sessions, local
 project paths, private keys, cookies, or machine-specific state.
 
-## Start Fast
+## ⚡ Start Fast
 
 | I want to... | Go here |
 | --- | --- |

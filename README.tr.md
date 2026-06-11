@@ -30,7 +30,7 @@ linkleri korunur.
 Bu repo token, auth dosyası, memory, session, yerel proje yolu, private key,
 cookie veya makineye özel gizli durum içermez.
 
-## Hızlı Başla
+## ⚡ Hızlı Başla
 
 | Ne yapmak istiyorum? | Nereye bakayım? |
 | --- | --- |
